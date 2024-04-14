@@ -17,11 +17,20 @@ module Api
 
     def create_comment
       feature = Feature.find(params[:feature_id])
-      comment = feature.comments.create(body: params[:body])
-      render json: comment
+      comment = feature.comments.new(body: comment_params[:body])
+    
+      if comment.save
+        render json: comment, status: :created
+      else
+        render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+      end
     end
-
+    
     private
+    
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
 
     def filter_params
       params.permit(filters: [:mag_type])[:filters] || {}
