@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import { AppNameDisplay } from "./components/AppNameDisplay/AppNameDisplay";
-import { Sidebar } from "./components/Sidebar/Sidebar";
+import { ListContainer } from "./components/List/ListContainer";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="m-20">
       <AppNameDisplay />
-      <Sidebar />
+      <ListContainer />
     </main>
   );
 }
