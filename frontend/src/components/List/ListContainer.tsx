@@ -3,7 +3,7 @@
 import { ListItem } from "./ListItem";
 import { useState, useEffect } from "react";
 import { Item } from "../../interfaces/featuresInterfaces";
-import { getFeatures } from "../../services/featuresServices";
+import { getFeatures } from "@/src/services/featuresServices";
 
 export const ListContainer = () => {
   const [features, setFeatures] = useState<Item[]>([]);

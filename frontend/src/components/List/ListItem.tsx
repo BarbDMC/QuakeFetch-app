@@ -1,4 +1,4 @@
-
+import { useRouter } from 'next/navigation';
 import { Item } from "../../interfaces/featuresInterfaces";
 
 interface ListItemProps {
@@ -6,11 +6,21 @@ interface ListItemProps {
 }
 
 export const ListItem = ({ item } : ListItemProps) => {
+  const router = useRouter();
+
+  const navigateToFeature = (featureId: number) => {
+    router.push(`features/${featureId}`);
+  };
+
   return (
     <div className="border-gray-200 border-2 grid grid-cols-2 rounded-xl m-10">
       <div className="p-2">
         <p>{item.time.toString()}</p>
-        <h3 className="text-black text-2xl font-normal font-['Nunito']">{item.title}</h3>
+        <h3 className="text-black text-2xl font-normal font-['Nunito'] cursor-pointer hover:underline"
+          onClick={() => navigateToFeature(item.id)}
+          >
+            {item.title}
+        </h3>
       </div>
 
       <div className="">
