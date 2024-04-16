@@ -15,6 +15,13 @@ module Api
       }
     end
 
+    def show
+      feature = Feature.find(params[:id])
+      render json: feature, serializer: FeatureSerializer
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'Feature not found' }, status: :not_found
+    end
+
     def create_comment
       feature = Feature.find(params[:feature_id])
       comment = feature.comments.new(body: comment_params[:body])
