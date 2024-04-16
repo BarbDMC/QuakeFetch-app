@@ -24,7 +24,8 @@ const FeaturePage = () => {
 
   return (
     <>
-    <div className='text-center'>
+    <div className='text-center
+    '>
       <AppNameDisplay />
     </div>
     <div className='h-screen flex items-center justify-center'>
